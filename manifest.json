@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "DeepControl",
+  "version": "1.3.0",
+  "description": "Управление браузером через официальный чат DeepSeek (без API): команды из ответов DeepSeek, скриншоты и состояние страницы возвращаются обратно в чат.",
+  "permissions": ["tabs", "scripting", "storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "DeepControl" },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": ["prompt.js", "deepseek.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": ["https://chat.deepseek.com/*"],
+      "js": ["page.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

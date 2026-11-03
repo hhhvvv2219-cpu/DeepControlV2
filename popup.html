@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  body{width:330px;margin:0;padding:12px;font:13px system-ui,sans-serif}
+  h3{margin:0 0 8px} label{display:block;margin:6px 0} select,button{width:100%;box-sizing:border-box;margin-top:4px;padding:5px;font:inherit}
+  .cur{background:#eef2ff;border-radius:6px;padding:6px;margin:6px 0;word-break:break-word;white-space:pre-wrap}
+  .warn{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;border-radius:6px;padding:6px;margin:4px 0;font-size:12px;line-height:1.4;display:none}
+  small{color:#666;display:block;margin-top:8px;line-height:1.4}
+</style></head>
+<body>
+  <h3>DeepControl</h3>
+  <label><input type="checkbox" id="enabled"> Включено</label>
+  <label><input type="checkbox" id="autoRun"> Авто-выполнение (без подтверждения)</label>
+  <label><input type="checkbox" id="fullControl"> <b>FullControl</b> — все вкладки, окна и сайты</label>
+  <label><input type="checkbox" id="vision"> 👁 <b>Vision</b> — настоящие скриншоты (viewport / вся страница / элемент) по запросу DeepSeek</label>
+  <div class="warn" id="warn">⚠️ DeepSeek увидит названия и адреса ВСЕХ ваших открытых вкладок и сможет открывать любые сайты и действовать в любой вкладке под вашими сессиями. Закрытие вкладок всегда требует подтверждения. После включения вставьте промпт заново.</div>
+  <div id="safeBox">
+    <div>Целевая вкладка (SAFE: только её сайт):</div>
+    <div class="cur" id="cur">—</div>
+    <select id="tabs"></select>
+    <button id="set">Назначить выбранную вкладку целевой</button>
+  </div>
+  <button id="open">Открыть chat.deepseek.com</button>
+  <small>Совет: открой DeepSeek в отдельном окне рядом — скриншоты и фон работают стабильнее. В SAFE-режиме DeepSeek не может уйти за пределы сайта выбранной вкладки.</small>
+<script src="popup.js"></script>
+</body></html>
